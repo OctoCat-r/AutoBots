@@ -9,6 +9,9 @@ import {
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 
+// import ExportsTable from "@/components/ExportsTable"; // Import the component for the Exports table
+
+
 const icon = {
   className: "w-5 h-5 text-inherit",
 };
@@ -41,6 +44,10 @@ export const routes = [
         path: "/notifactions",
         element: <Notifications />,
       },
+      // {
+      // path: "/exports",
+      // element: <ExportsTable />
+      // }
     ],
   },
   {
