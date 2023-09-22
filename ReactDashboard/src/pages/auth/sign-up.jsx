@@ -1,4 +1,7 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { register_me } from "../../services";
+
 import {
   Card,
   CardHeader,
@@ -10,7 +13,47 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
+
 export function SignUp() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState({ email: "", password: "", name: "" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.email) {
+      setError({ ...error, email: "Email Field is Required" });
+      return;
+    }
+
+    if (!formData.password) {
+      setError({ ...error, password: "Password Field is required" });
+      return;
+    }
+    if (!formData.name) {
+      setError({ ...error, name: "Name Field is required" });
+      return;
+    }
+
+    console.log(formData);
+
+    const data = await register_me(formData);
+
+    if (data.success) {
+      toast.success(data.message);
+    } else {
+      toast.error(data.message);
+    }
+  };
+
   return (
     <>
       <img
@@ -30,15 +73,35 @@ export function SignUp() {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input label="Name" size="lg" />
-            <Input type="email" label="Email" size="lg" />
-            <Input type="password" label="Password" size="lg" />
+            <Input
+              label="Name"
+              size="lg"
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
+            <Input
+              type="email"
+              label="Email"
+              size="lg"
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+            <Input
+              type="password"
+              label="Password"
+              size="lg"
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+            />
             <div className="-ml-2.5">
               <Checkbox label="I agree the Terms and Conditions" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button variant="gradient" fullWidth onClick={handleSubmit}>
               Sign Up
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
@@ -56,6 +119,7 @@ export function SignUp() {
             </Typography>
           </CardFooter>
         </Card>
+        <ToastContainer />
       </div>
     </>
   );
