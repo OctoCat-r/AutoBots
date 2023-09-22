@@ -19,8 +19,8 @@ export const chartsConfig = {
     },
     labels: {
       style: {
-        colors: "#fff",
-        fontSize: "13px",
+        colors: "black",
+        fontSize: "16px",
         fontFamily: "inherit",
         fontWeight: 300,
       },
@@ -29,8 +29,8 @@ export const chartsConfig = {
   yaxis: {
     labels: {
       style: {
-        colors: "#fff",
-        fontSize: "13px",
+        colors: "black",
+        fontSize: "16px",
         fontFamily: "inherit",
         fontWeight: 300,
       },
@@ -38,15 +38,15 @@ export const chartsConfig = {
   },
   grid: {
     show: true,
-    borderColor: "#ffffff40",
-    strokeDashArray: 5,
-    xaxis: {
-      lines: {
-        show: true,
-      },
-    },
+    borderColor: "#ECECEC",
+    // strokeDashArray: 10,
+    // xaxis: {
+    //   lines: {
+    //     show: true,
+    //   },
+    // },
     padding: {
-      top: 5,
+      top: 10,
       right: 20,
     },
   },
