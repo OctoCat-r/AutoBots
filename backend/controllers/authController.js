@@ -1,10 +1,11 @@
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 exports.signup = async (req, res) => {
   try {
-    const { username, password, email } = req.body;
+    const { name, password, email } = req.body;
 
     const existingUser = await User.findOne({ email });
 
@@ -14,7 +15,7 @@ exports.signup = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new User({ username, password: hashedPassword, email });
+    const newUser = new User({ name, password: hashedPassword, email });
     await newUser.save();
 
     res.status(201).json({ message: "User registered successfully." });
