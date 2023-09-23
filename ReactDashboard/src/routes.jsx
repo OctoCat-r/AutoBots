@@ -6,8 +6,11 @@ import {
   ArrowRightOnRectangleIcon,
   UserPlusIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { Home, Profile, Tables, Notifications, Production, ExportTable, WastageTable } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
+
+// import ExportsTable from "@/components/ExportsTable"; // Import the component for the Exports table
+
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -31,9 +34,33 @@ export const routes = [
       },
       {
         icon: <TableCellsIcon {...icon} />,
-        name: "tables",
+        name: "Import",
         path: "/tables",
         element: <Tables />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Export",
+        path: "/export",
+        element: <ExportTable />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Production",
+        path: "/production",
+        element: <Production />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Consumption",
+        path: "/consumption",
+        element: <Tables />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Wastage",
+        path: "/wastage",
+        element: <WastageTable/>,
       },
       {
         icon: <BellIcon {...icon} />,
@@ -41,6 +68,10 @@ export const routes = [
         path: "/notifactions",
         element: <Notifications />,
       },
+      // {
+      // path: "/exports",
+      // element: <ExportsTable />
+      // }
     ],
   },
   {

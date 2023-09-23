@@ -107,7 +107,7 @@ export function Home() {
             <table className="w-full min-w-[640px] table-auto">
               <thead>
                 <tr>
-                  {["companies", "members", "budget", "completion"].map(
+                  {["S.No", "Commodity", "FY22-23", "PercantageShare"].map(
                     (el) => (
                       <th
                         key={el}
@@ -125,8 +125,8 @@ export function Home() {
                 </tr>
               </thead>
               <tbody>
-                {projectsTableData.map(
-                  ({ img, name, members, budget, completion }, key) => {
+                {/* {projectsTableData.map(
+                  ({ SNo, Commodity, FY22_23, Percentageshare}, key) => {
                     const className = `py-3 px-5 ${
                       key === projectsTableData.length - 1
                         ? ""
@@ -189,7 +189,7 @@ export function Home() {
                       </tr>
                     );
                   }
-                )}
+                )} */}
               </tbody>
             </table>
           </CardBody>
