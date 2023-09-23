@@ -6,7 +6,7 @@ import {
   ArrowRightOnRectangleIcon,
   UserPlusIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { Home, Profile, Tables, Notifications, Production, ExportTable, WastageTable } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 
 // import ExportsTable from "@/components/ExportsTable"; // Import the component for the Exports table
@@ -42,19 +42,25 @@ export const routes = [
         icon: <TableCellsIcon {...icon} />,
         name: "Export",
         path: "/export",
-        element: <Tables />,
+        element: <ExportTable />,
       },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "Production",
         path: "/production",
-        element: <Tables />,
+        element: <Production />,
       },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "Consumption",
         path: "/consumption",
         element: <Tables />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "Wastage",
+        path: "/wastage",
+        element: <WastageTable/>,
       },
       {
         icon: <BellIcon {...icon} />,

@@ -21,7 +21,7 @@ export function Tables() {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["S.No", "Commodity", "2021-2022", "Percentage Share"].map((el, index) => (
+                {["S.No", "Commodity", "UNIT","Quantity", "Value"].map((el, index) => (
                   <th
                     key={el}
                     className={`border-b border-blue-gray-300 py-2 px-4 text-left ${
@@ -39,7 +39,7 @@ export function Tables() {
               </tr>
             </thead>
             <tbody>
-              {authorsTableData.map(({ Commodity, FY21_22, PercentageShare }, index) => {
+              {authorsTableData.map(({SNo, Commodity, Unit, Quantity, Value }, index) => {
                 const className = `py-2 ${
                   index === authorsTableData.length - 1
                     ? ""
@@ -48,10 +48,11 @@ export function Tables() {
                 
                 return (
                   <tr key={index}>
-                    <td className={`px-4 pl-10 ${className}`}>{index + 1}</td>
+                    <td className={`px-4 pl-10 ${className}`}>{SNo}</td>
                     <td className={`px-4 pl-10 ${className}`}>{Commodity}</td>
-                    <td className={`px-4 ${className}`}>{FY21_22 || "-"}</td>
-                    <td className={`px-4 ${className}`}>{PercentageShare}</td>
+                    <td className={`px-4 ${className}`}>{Unit || "-"}</td>
+                    <td className={`px-4 ${className}`}>{Quantity}</td>
+                    <td className={`px-4 ${className}`}>{Value}</td>
                   </tr>
                 );
               })}
@@ -70,7 +71,7 @@ export function Tables() {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["S.No", "Commodity", "2022-2023", "Percentage Share"].map(
+                {["S.No", "Commodity", "UNIT","Quantity", "Value"].map(
                   (el, index) => (
                     <th
                       key={el}
@@ -90,7 +91,7 @@ export function Tables() {
             </thead>
             <tbody>
               {projectsTableData.map(
-                ({ img, Sno, Commodity, FY22_23, PercentageShare }, index) => {
+                ({SNo, Commodity, Unit, Quantity, Value }, index) => {
                   const className = `py-2 ${
                     index === projectsTableData.length - 1
                       ? ""
@@ -99,10 +100,11 @@ export function Tables() {
 
                   return (
                     <tr key={index}>
-                      <td className={`px-4 pl-10 ${className}`}>{index + 1}</td>
+                      <td className={`px-4 pl-10 ${className}`}>{SNo}</td>
                       <td className={`px-4 pl-10 ${className}`}>{Commodity}</td>
-                      <td className={`px-4 ${className}`}>{FY22_23 || "-"}</td>
-                      <td className={`px-4 ${className}`}>{PercentageShare}</td>
+                      <td className={`px-4 ${className}`}>{Unit || "-"}</td>
+                      <td className={`px-4 ${className}`}>{Quantity}</td>
+                    <td className={`px-4 ${className}`}>{Value}</td>
                     </tr>
                   );
                 }
