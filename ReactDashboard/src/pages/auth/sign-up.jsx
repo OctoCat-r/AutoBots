@@ -16,6 +16,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 export function SignUp() {
   const [formData, setFormData] = useState({
@@ -23,6 +24,7 @@ export function SignUp() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const [error, setError] = useState({ email: "", password: "", name: "" });
 
@@ -46,9 +48,11 @@ export function SignUp() {
     console.log(formData);
 
     const data = await register_me(formData);
+    console.log(data);
 
     if (data.success) {
       toast.success(data.message);
+      navigate("/auth/sign-in");
     } else {
       toast.error(data.message);
     }

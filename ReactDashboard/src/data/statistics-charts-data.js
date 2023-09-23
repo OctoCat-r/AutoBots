@@ -135,6 +135,84 @@ const optionsData = {
   },
 };
 
+const production = {
+  type: "bar",
+  height: 450,
+  series: [
+    {
+      name: "Uttar Pradesh",
+      data: [9.83, 2, 10.83, 1.5, 13.7, 1.7, 36.61, 48, 34, 55],
+    },
+    {
+      name: "Punjab",
+      data: [3, 24.39, 3.34, 4, 5.76, 21, 67, 5.67, 39.5, 70.67],
+    },
+    {
+      name: "West Bengal",
+      data: [6, 7.56, 4.5, 7.6, 15.6, 17.4, 39.8, 14.67, 30.56, 70.8],
+    },
+    {
+      name: "Andhra Pradesh",
+      data: [9, 7, 5, 8, 6, 9, 4],
+    },
+    {
+      name: "Orissa",
+      data: [25, 12, 19, 32, 25, 24, 10],
+    },
+  ],
+  options: {
+    ...chartsConfig,
+    colors: ["#2E93fA", "#66DA26", "#546E7A", "#E91E63", "#FF9800"],
+    plotOptions: {
+      bar: {
+        columnWidth: "40%",
+        borderRadius: 5,
+      },
+    },
+    xaxis: {
+      ...chartsConfig.xaxis,
+      categories: [
+        "Arhar",
+        "Cotton",
+        "Gram",
+        "GroundNut",
+        "Maize",
+        "Moong",
+        "Paddy",
+        "Sugarcane",
+        "Wheat",
+        "Rice",
+      ],
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      tickAmount: 20, // Divide the y-axis into 10 ticks
+    },
+    stroke: {
+      width: 1,
+      colors: ["#fff"],
+    },
+    // title: {
+    //   text: "100% Stacked Bar",
+    // },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return val + "K";
+        },
+      },
+    },
+    fill: {
+      opacity: 1,
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+      offsetX: 10,
+    },
+  },
+};
+
 const dailySalesChart = {
   type: "line",
   height: 220,
@@ -194,6 +272,13 @@ export const statisticsChartsData = [
     description: "Last Campaign Performance",
     footer: "campaign sent 2 days ago",
     chart: websiteDataChart,
+  },
+  {
+    color: "white",
+    title: "Production Statistics",
+    description: "Last Campaign Performance",
+    footer: "Last Year performance",
+    chart: production,
   },
   {
     color: "pink",

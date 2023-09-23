@@ -9,8 +9,47 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
+// import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login_me } from "../../services";
+import { useState, useEffect } from "react";
 
 export function SignIn() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState({ email: "", password: "" });
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.email) {
+      setError({ ...error, email: "Email Field is Required" });
+      return;
+    }
+    if (!formData.password) {
+      setError({ ...error, password: "Password Field is required" });
+      return;
+    }
+
+    const res = await login_me(formData);
+    if (res.success) {
+      Cookies.set("token", res?.finalData?.token);
+      localStorage.setItem("user", JSON.stringify(res?.finalData?.user));
+      navigate("/");
+    } else {
+      toast.error(res.message);
+    }
+  };
+
+  useEffect(() => {
+    if (Cookies.get("token")) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <>
       <img
@@ -30,14 +69,35 @@ export function SignIn() {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input type="email" label="Email" size="lg" />
-            <Input type="password" label="Password" size="lg" />
+            <Input
+              type="email"
+              label="Email"
+              size="lg"
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+            {error.email && (
+              <p className="text-sm text-red-500">{error.email}</p>
+            )}
+            <Input
+              type="password"
+              label="Password"
+              size="lg"
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+            />
+            {error.password && (
+              <p className="text-sm text-red-500">{error.password}</p>
+            )}
+
             <div className="-ml-2.5">
               <Checkbox label="Remember Me" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button variant="gradient" fullWidth onClick={handleSubmit}>
               Sign In
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
