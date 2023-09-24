@@ -6,7 +6,7 @@ import {
     Avatar,
   } from "@material-tailwind/react";
   import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
-  import { authorsTableData, projectsTableData, exportData } from "@/data";
+  import { authorsTableData, projectsTableData, exportData, Export2Data } from "@/data";
   
   export function ExportTable() {
     return (
@@ -14,7 +14,7 @@ import {
         <Card>
           <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
             <Typography variant="h6" color="white">
-              Exports 
+              Exports FY21-22
             </Typography>
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
@@ -61,17 +61,17 @@ import {
           </CardBody>
         </Card>
   
-        {/* <Card>
+        <Card>
           <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
             <Typography variant="h6" color="white">
-              Imports FY22-23
+              Exports FY22-23
             </Typography>
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
             <table className="w-full min-w-[640px] table-auto">
               <thead>
                 <tr>
-                  {["S.No", "Commodity", "2022-2023", "Percentage Share"].map(
+                  {["S.No", "Commodity", "Unit", "Quantity", "Value"].map(
                     (el, index) => (
                       <th
                         key={el}
@@ -90,8 +90,8 @@ import {
                 </tr>
               </thead>
               <tbody>
-                {projectsTableData.map(
-                  ({ img, Sno, Commodity, FY22_23, PercentageShare }, index) => {
+                {Export2Data.map(
+                  ({  SNo, Commodity, Unit, Quantity, Value }, index) => {
                     const className = `py-2 ${
                       index === projectsTableData.length - 1
                         ? ""
@@ -100,10 +100,11 @@ import {
   
                     return (
                       <tr key={index}>
-                        <td className={`px-4 pl-10 ${className}`}>{index + 1}</td>
-                        <td className={`px-4 pl-10 ${className}`}>{Commodity}</td>
-                        <td className={`px-4 ${className}`}>{FY22_23 || "-"}</td>
-                        <td className={`px-4 ${className}`}>{PercentageShare}</td>
+                         <td className={`px-4 pl-10 ${className}`}>{SNo}</td>
+                         <td className={`px-4 pl-10 ${className}`}>{Commodity}</td>
+                         <td className={`px-4 ${className}`}>{Unit || "-"}</td>
+                         <td className={`px-4 ${className}`}>{Quantity}</td>
+                         <td className={`px-4 ${className}`}>{Value}</td>
                       </tr>
                     );
                   }
@@ -111,7 +112,7 @@ import {
               </tbody>
             </table>
           </CardBody>
-        </Card> */}
+        </Card>
       </div>
     );
   }

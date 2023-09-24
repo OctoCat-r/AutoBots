@@ -3,7 +3,7 @@ export const authorsTableData = [
     SNo: "1",
     Commodity: "Cashew",
     Unit: "TON",
-    Quantity: "4,52,717.72",
+    Quantity: "4,526.72",
     Value: "535.56",
   },
   {
