@@ -74,7 +74,7 @@ export default function Intro() {
             <h2 className="text-3xl font-bold mb-4 font-bold font-Quicksand"><span className="text-green-600 ">About Us</span></h2>
             <hr className="w-20 h-1 bg-green-600 mx-auto mb-4" /> 
             <p className="text-black-600 font-semibold text-xl font-quicksand ">
-          Welcome to <span className="font-bold ">Rural Rise</span> where we're not just connecting fields to shelves, we're sowing the seeds of a food revolution. Our journey began with a simple idea: to create a vibrant marketplace that unites the guardians of our land, our farmers, with the discerning tastemakers of our society, you, our cherished consumers.
+          Welcome to <span className="font-bold ">Fresh Farms</span> where we're not just connecting fields to shelves, we're sowing the seeds of a food revolution. Our journey began with a simple idea: to create a vibrant marketplace that unites the guardians of our land, our farmers, with the discerning tastemakers of our society, you, our cherished consumers.
           Join us in this culinary journey, where quality, sustainability, and the joy of farm-fresh goodness come together. Let's rewrite the story of food, one harvest at a time. Together, we'll harvest happiness, health, and a future that tastes deliciously unique.
             </p>
           </div>

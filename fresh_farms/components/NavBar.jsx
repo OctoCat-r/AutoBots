@@ -97,7 +97,7 @@ export default function NavBar() {
                     <Link href={'/frontend/postedProduct'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Post Products</Link>
                     <Link href={'/frontend/schemes'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Schemes</Link>
                     <Link href={'/frontend/trade'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Trade</Link>
-                    <Link href={'/'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Contact</Link>
+                    <Link href={'/frontend/contact'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Contact</Link>
                 </div>
                 <div className='px-2 h-full hidden items-center justify-center lg:flex ' >
                     {
