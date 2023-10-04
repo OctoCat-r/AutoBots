@@ -27,16 +27,22 @@ const websiteViewsChart = {
 
 const websiteDataChart = {
   type: "area",
-  height: 220,
+  height: 380,
   series: [
     {
       name: "FY21_22",
-      data: [50, 20, 10, 22, 50, 10, 40, 50, 20, 10, 22, 50, 10, 40],
+      data: [
+        535.56, 0.22, 138.2, 0.21, 145.57, 133.13, 65.88, 50.45, 102.75, 162.88,
+        1.66, 73.3, 25.89, 154.89, 4.05,
+      ],
     },
 
     {
       name: "FY22_23",
-      data: [40, 10, 50, 24, 10, 20, 50, 40, 10, 50, 24, 10, 20, 50],
+      data: [
+        199.8, 0.25, 20.16, 0.18, 99.03, 76.66, 64.22, 11.23, 108.75, 154.35,
+        0.38, 14.8, 14.08, 121.09, 5.53,
+      ],
     },
   ],
   fill: {
@@ -60,23 +66,96 @@ const websiteDataChart = {
         borderRadius: 5,
       },
     },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      tickAmount: 15, // Divide the y-axis into 10 ticks
+    },
     xaxis: {
       ...chartsConfig.xaxis,
       categories: [
-        "M",
-        "T",
-        "W",
-        "T",
-        "F",
-        "S",
-        "S",
-        "M",
-        "T",
-        "W",
-        "T",
-        "F",
-        "S",
-        "S",
+        "Cashew",
+        "Castor Oil",
+        "Coffee",
+        "Groundnut",
+        "Natural Rubber",
+        "Pulses",
+        "Sesame seeds",
+        "Tea",
+        "Vegetable Oils",
+        "Fresh Fruits",
+        "Fresh Vegetables",
+        "Other Cereals",
+        "Palm Oil",
+        "Legumes",
+        "sunflower",
+      ],
+    },
+  },
+};
+
+const websiteDataChart1 = {
+  type: "area",
+  height: 380,
+  series: [
+    {
+      name: "FY21_22",
+      data: [
+        12.59, 0.08, 19.2, 0.98, 431.97, 124.13, 65.88, 293.28, 109.05, 554.88,
+        108.66, 33.3, 30.89, 154.89, 40.05,
+      ],
+    },
+
+    {
+      name: "FY22_23",
+      data: [
+        199.8, 0.25, 20.16, 0.18, 99.03, 76.66, 64.22, 11.23, 108.75, 154.35,
+        0.38, 14.8, 14.08, 121.09, 5.53,
+      ],
+    },
+  ],
+  fill: {
+    type: "gradient",
+    gradient: {
+      shadeIntensity: 1,
+      opacityFrom: 0.7,
+      opacityTo: 0.9,
+      stops: [0, 90, 100],
+    },
+  },
+  options: {
+    ...chartsConfig,
+    colors: ["#2E93fA", "#66DA26", "#546E7A", "#E91E63", "#FF9800"],
+    stroke: {
+      curve: "smooth",
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "16%",
+        borderRadius: 5,
+      },
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      tickAmount: 15, // Divide the y-axis into 10 ticks
+    },
+    xaxis: {
+      ...chartsConfig.xaxis,
+      categories: [
+        "Cotton",
+        "Gram",
+        "Rapeseed and Mustard",
+        "Groundnut",
+        "Sugarcane",
+        "Pulses",
+        "Wheat",
+        "Non-Basmati Rice",
+        "Basmati Rice",
+        "Maize",
+        "Paddy",
+        "Processed Vegetables",
+        "Coffee",
+        "Sugar",
+        "sunflower",
       ],
     },
   },
@@ -230,16 +309,20 @@ const production = {
 
 const dailySalesChart = {
   type: "line",
-  height: 220,
+  height: 250,
   series: [
     {
       name: "Sales",
-      data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+      data: [
+        5.53, 4.93, 4.65, 5.23, 5.99, 6.36, 8.41, 7.07, 6.6, 5.54, 3.08, 9.96,
+        3.24, 5.26, 6.03, 10.39, 7.76, 9.69, 8.63, 15.88, 9.16, 6.7, 9.73, 9.37,
+        9.56, 7.45, 9.51, 8.2, 7.32, 12.44, 4.58,
+      ],
     },
   ],
   options: {
     ...chartsConfig,
-    colors: ["#fff"],
+    colors: ["#2E93fA"],
     stroke: {
       lineCap: "round",
     },
@@ -249,15 +332,37 @@ const dailySalesChart = {
     xaxis: {
       ...chartsConfig.xaxis,
       categories: [
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        "Paddy",
+        "Wheat",
+        "Maize",
+        "Bajra",
+        "Sorghum",
+        "Pigeon pea",
+        "Chick pea",
+        "Black gram",
+        "Green gram",
+        "Mustard",
+        "Cotton seed",
+        "Soybean",
+        "Safflower",
+        "Sunflower",
+        "Groundnut",
+        "Apple",
+        "Banana",
+        "Citrus",
+        "Grapes",
+        "Guava",
+        "Mango",
+        "Papaya",
+        "Sapota",
+        "Cabbage",
+        "Cauliflower",
+        "Green pea",
+        "Mushroom",
+        "Onion",
+        "Potato",
+        "Tomato",
+        "Tapioca",
       ],
     },
   },
@@ -275,47 +380,59 @@ const completedTasksChart = {
 
 export const statisticsChartsData = [
   {
-    color: "blue",
-    title: "Agriculture Imports",
-    description: "Last Campaign Performance",
-    footer: "campaign sent 2 days ago",
-    chart: websiteViewsChart,
-  },
-  {
     color: "white",
     title: "Agriculture Imports",
-    description: "Last Campaign Performance",
-    footer: "campaign sent 2 days ago",
+    description:
+      "Agriculture commodities including plants and crops imported by a country",
+    footer: "(Commodity, Value) in metric tonnes",
     chart: websiteDataChart,
   },
   {
     color: "white",
+    title: "Agriculture Exports",
+    description:
+      "Agriculture commodities including plants and crops exported by a country",
+    footer: "(Commodity, value) in metric tonnes",
+    chart: websiteDataChart1,
+  },
+  {
+    color: "white",
     title: "Production Statistics",
-    description: "Last Campaign Performance",
-    footer: "Last Year performance",
+    description:
+      "Commodities produced by a particular state in a particular time frame",
+    footer: "(Commodity, Yield) in metric tonnes",
     chart: production,
   },
   {
-    color: "pink",
-    title: "Daily Sales",
-    description: "15% increase in today sales",
-    footer: "updated 4 min ago",
+    color: "white",
+    title: "Yearly Wastage",
+    description:
+      "Percentage of commodities not utilized in a particular time frame",
+    footer: "(Commodity, TotalLoss) waste percentage",
     chart: dailySalesChart,
   },
   {
-    color: "pink",
-    title: "Daily Sales",
-    description: "15% increase in today sales",
-    footer: "updated 4 min ago",
-    chart: optionsData,
+    color: "blue",
+    title: "Per Capita Consumption",
+    description: "The yearly use of goods and services by each person.",
+    footer: "(Commodity, Consumption(kg))",
+    chart: websiteViewsChart,
   },
-  {
-    color: "green",
-    title: "Completed Tasks",
-    description: "Last Campaign Performance",
-    footer: "just updated",
-    chart: completedTasksChart,
-  },
+  
+  // {
+  //   color: "pink",
+  //   title: "Daily Sales",
+  //   description: "15% increase in today sales",
+  //   footer: "updated 4 min ago",
+  //   chart: optionsData,
+  // },
+  // {
+  //   color: "green",
+  //   title: "Completed Tasks",
+  //   description: "Last Campaign Performance",
+  //   footer: "just updated",
+  //   chart: completedTasksChart,
+  // },
 ];
 
 export default statisticsChartsData;

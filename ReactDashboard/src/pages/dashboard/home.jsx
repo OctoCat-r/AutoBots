@@ -81,7 +81,7 @@ export function Home() {
           />
         ))}
       </div>
-      <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
+      {/* <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
         <Card className="overflow-hidden xl:col-span-2">
           <CardHeader
             floated={false}
@@ -140,7 +140,7 @@ export function Home() {
                 </tr>
               </thead>
               <tbody>
-                {/* {projectsTableData.map(
+                {projectsTableData.map(
                   ({ SNo, Commodity, FY22_23, Percentageshare}, key) => {
                     const className = `py-3 px-5 ${
                       key === projectsTableData.length - 1
@@ -204,7 +204,7 @@ export function Home() {
                       </tr>
                     );
                   }
-                )} */}
+                )}
               </tbody>
             </table>
           </CardBody>
@@ -266,7 +266,7 @@ export function Home() {
             )}
           </CardBody>
         </Card>
-      </div>
+      </div> */}
     </div>
   );
 }

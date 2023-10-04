@@ -32,7 +32,7 @@ export function Notifications() {
   const [predictions, SetPredictions] = useState([]);
   useEffect(() => {
     axios
-      .post("http://192.168.46.60:5198/predict", inputData)
+      .post("http://192.168.1.25:5198/predict", inputData)
       .then((response) => {
         const predictions = response.data.predictions;
         console.log("Predictions:", predictions);
@@ -63,7 +63,7 @@ export function Notifications() {
 
             if (name === "cotton") {
               alertMessage = `${name} has exceeded expectations with a surplus harvest, with a
-              production of ${Math.round(value)} metric ton.`
+              production of ${Math.round(value)} metric ton.`;
             }
             if (name === "groundnut") {
               alertMessage = `${name} has exceeded expectations with a surplus harvest, with a
